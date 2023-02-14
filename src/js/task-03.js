@@ -22,27 +22,3 @@ const galleryImg = images.map(imgEl => `<li class="gallery__item">
 </li>`);
 
 galleryList.insertAdjacentHTML("afterbegin", galleryImg)
-
-
-
-
-
-// const galleryList = document.querySelector('.gallery');
-// console.log(galleryList);
-
-// const galleryImg = images.map(imgEl => {
-
-//   const galleryItem = document.createElement('li');
-//   galleryItem.classList.add('gallery__item');
-
-//   const galleryImgItem = document.createElement('img');
-//   galleryImgItem.classList.add('gallery__img');
-//   galleryImgItem.src = imgEl.url;
-//   galleryImgItem.alt = imgEl.alt;
-
-//   galleryItem.appendChild(galleryImgItem);
-  
-//   return galleryItem;
-// }); 
-
-// galleryList.insertAdjacentHTML('afterbegin', galleryImg);
