@@ -19,6 +19,6 @@ console.log(galleryList);
 
 const galleryImg = images.map(imgEl => `<li class="gallery__item">
 <img class="gallery__img" src="${imgEl.url}" alt="${imgEl.alt}">
-</li>`);
+</li>`).join(" ");
 
 galleryList.insertAdjacentHTML("afterbegin", galleryImg)
