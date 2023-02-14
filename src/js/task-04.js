@@ -10,8 +10,18 @@ const counter = {
     }
 }
 
-const decrementBtn = document.querySelector('#decrement');
-const increment = document.querySelector("#increment");
-const valueEl = document.querySelector('#value');
+const decrementBtn = document.querySelector('button');
 
-decrementBtn.addEventListener("click", decrement)
+// const incrementBtn = document.querySelector("button");
+// console.log(incrementBtn)
+// const valueEl = document.querySelector('#value');
+
+decrementBtn.addEventListener('click', function () {
+    counter.decrement();
+    valueEl.textContent = counter.value
+});
+
+// incrementBtn.addEventListener('click',  function () {
+//     counter.increment();
+//     valueEl.textContent = counter.value
+// });
