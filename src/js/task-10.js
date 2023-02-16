@@ -8,24 +8,30 @@ const refs = {
   btnDestroy: document.querySelector('#controls').lastElementChild,
   divBoxes: document.querySelector('#boxes'),
 };
-// console.log(refs.btnCreate);
 
 refs.input.addEventListener('input', createBoxes);
-// refs.btnCreate.addEventListener('click', createBoxes);
 
 function createBoxes(amount) {
+  // при вводе значения в "инпут", создаю массив длинной равной єтому значению
   const lengthOfArray = amount.currentTarget.value;
   const parsedLengthOfArray = parseInt(lengthOfArray);
   const arrayForCycle = Array(parsedLengthOfArray);
-  const filledArrayForCycle = arrayForCycle.fill('div')
-  
-  for (const el of filledArrayForCycle) {
+  const filledArrayForCycle = arrayForCycle.fill('div');
+  // вешаю слушателя на кнопку "создать"
+  refs.btnCreate.addEventListener('click', addBoxes);
+  // перебираю массив и добавляю єлементы
+  function addBoxes() {
+    for (const el of filledArrayForCycle) {
     const createdElement = document.createElement('div');
     createdElement.style.background = getRandomHexColor();
     createdElement.style.height = "30px";
     createdElement.style.width = "30px";
-    return createdElement;
-  } 
+    // return createdElement;
+    refs.divBoxes.append(createdElement)
+    };
+  };
 };
 
-// console.log(createBoxes())
+
+
+
