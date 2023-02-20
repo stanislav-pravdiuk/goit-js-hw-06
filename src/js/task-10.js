@@ -18,45 +18,40 @@ const parsedLengthOfArray = parseInt(lengthOfArray);
 const arrayForCycle = Array(parsedLengthOfArray);
 let filledArrayForCycle = arrayForCycle.fill('1');
 
-  
 refs.btnCreate.addEventListener('click', addBoxes);
 refs.input.removeEventListener('blur', createBoxes);
-  
-let heightDiv = 20;
-let widthDiv = 20;
-  
-function makeBigger() {
-  heightDiv += 10;
-  widthDiv += 10;
-}
+refs.btnDestroy.addEventListener('click', deleteBoxes);
 
-function addBoxes() {
+  function addBoxes() {
+
+  deleteBoxes()
     
+  let size = 30;
+  const createdElements =[];
+
   for (const el of filledArrayForCycle) {
   
     const createdElement = document.createElement('div');
       
-      createdElement.style.background = getRandomHexColor();
+    createdElement.style.background = getRandomHexColor();
     
-      makeBigger();
-      
-      createdElement.style.height = `${heightDiv}px`;
-    createdElement.style.width = `${widthDiv}px`;
+    createdElement.style.height = `${size}px`;
+    createdElement.style.width = `${size}px`;
     createdElement.classList
     
-    refs.divBoxes.append(createdElement)
-    
-  }; 
+    size += 10;
+
+    createdElements.push(createdElement)
+  };
+  refs.divBoxes.append(...createdElements)
   };
 }; 
 
+  function deleteBoxes() {
+  refs.divBoxes.innerHTML = '';
+};
 
-refs.btnDestroy.addEventListener('click', deleteBoxes);
 
 
-function deleteBoxes() {
-  let delDivBoxes = document.querySelector('#boxes');
-  delDivBoxes.innerHTML = '';
-}
 
 
